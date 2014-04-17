@@ -1,7 +1,7 @@
 package bitbucket
 
 const (
-	TeamRoleAdmin = "admin"
+	TeamRoleAdmin  = "admin"
 	TeamRoleCollab = "collaborator"
 )
 
@@ -22,16 +22,15 @@ type Team struct {
 
 	// The group's slug.
 	Role string
-
 }
 
 // Gets the groups with account privileges defined for a team account.
 func (r *TeamResource) List() ([]*Team, error) {
-	
+
 	// we'll get the data in a key/value struct
 	data := struct {
 		Teams map[string]string
-	}{ }
+	}{}
 
 	data.Teams = map[string]string{}
 	teams := []*Team{}
@@ -40,8 +39,8 @@ func (r *TeamResource) List() ([]*Team, error) {
 		return nil, err
 	}
 
-	for k,v := range data.Teams {
-		team := &Team{ k, v }
+	for k, v := range data.Teams {
+		team := &Team{k, v}
 		teams = append(teams, team)
 	}
 

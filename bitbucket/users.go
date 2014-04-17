@@ -51,7 +51,7 @@ func (r *UserResource) Find(username string) (*Account, error) {
 	return &user, nil
 }
 
-/* TODO 
+/* TODO
 // Updates the basic information associated with an account.
 // It operates on the currently authenticated user.
 func (r *UserResource) Update(user *User) (*User, error) {

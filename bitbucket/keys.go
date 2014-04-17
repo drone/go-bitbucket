@@ -13,7 +13,7 @@ type Key struct {
 
 // Use the ssh-keys resource to manipulate the ssh-keys on an individual
 // or team account.
-// 
+//
 // https://confluence.atlassian.com/display/BITBUCKET/ssh-keys+Resource
 type KeyResource struct {
 	client *Client

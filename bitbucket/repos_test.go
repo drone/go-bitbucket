@@ -15,7 +15,7 @@ func Test_Repos(t *testing.T) {
 	if len(repos) == 0 {
 		t.Errorf("List of /user repositories returned empty set")
 	}
-	
+
 	// LIST dashboard repositories
 	accts, err := client.Repos.ListDashboard()
 	if err != nil {
@@ -25,7 +25,7 @@ func Test_Repos(t *testing.T) {
 	if len(accts) == 0 {
 		t.Errorf("List of dashboard repositories returned empty set")
 	}
-	
+
 	// FIND the named repo
 	repo, err := client.Repos.Find(testUser, testRepo)
 	if err != nil {
