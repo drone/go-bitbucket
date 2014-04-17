@@ -11,6 +11,7 @@ var (
 // New creates an instance of the Bitbucket Client
 func New(consumerKey, consumerSecret, accessToken, tokenSecret string) *Client {
 	c := &Client{}
+	c.BaseURL = "https://api.bitbucket.org/1.0"
 	c.ConsumerKey = consumerKey
 	c.ConsumerSecret = consumerSecret
 	c.AccessToken = accessToken
@@ -28,6 +29,7 @@ func New(consumerKey, consumerSecret, accessToken, tokenSecret string) *Client {
 }
 
 type Client struct {
+	BaseURL        string
 	ConsumerKey    string
 	ConsumerSecret string
 	AccessToken    string
