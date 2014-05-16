@@ -11,7 +11,7 @@ func Test_Teams(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	
+
 	if len(teams) == 0 {
 		t.Errorf("Returned an empty list of teams. Expected at least one result")
 		return

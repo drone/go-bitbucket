@@ -38,4 +38,3 @@ func Test_UsersGuest(t *testing.T) {
 		t.Errorf("username [%v]; want [%v]", user.User.Username, testUser)
 	}
 }
-

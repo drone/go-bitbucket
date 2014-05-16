@@ -55,7 +55,7 @@ func (c *Client) do(method string, path string, params url.Values, values url.Va
 	}
 
 	// create the URI
-	uri, err := url.Parse("https://api.bitbucket.org/1.0" + path)
+	uri, err := url.Parse(c.BaseURL + path)
 	if err != nil {
 		return err
 	}
@@ -65,7 +65,10 @@ func (c *Client) do(method string, path string, params url.Values, values url.Va
 	}
 
 	// create the access token
-	token := oauth1.NewAccessToken(c.AccessToken, c.TokenSecret, nil)
+	var token oauth1.Token
+	if c.AccessToken != "" || c.TokenSecret != "" {
+		token = oauth1.NewAccessToken(c.AccessToken, c.TokenSecret, nil)
+	}
 
 	// create the request
 	req := &http.Request{
@@ -127,7 +130,7 @@ func (c *Client) do(method string, path string, params url.Values, values url.Va
 func (c *Client) guest(method string, path string, params url.Values, values url.Values, v interface{}) error {
 
 	// create the URI
-	uri, err := url.Parse("https://api.bitbucket.org/1.0" + path)
+	uri, err := url.Parse(c.BaseURL + path)
 	if err != nil {
 		return err
 	}

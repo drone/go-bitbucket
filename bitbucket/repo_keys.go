@@ -5,10 +5,9 @@ import (
 	"net/url"
 )
 
-
 // Use the ssh-keys resource to manipulate the ssh-keys associated
 // with a repository
-// 
+//
 // https://confluence.atlassian.com/display/BITBUCKET/deploy-keys+Resource
 type RepoKeyResource struct {
 	client *Client

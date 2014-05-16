@@ -179,7 +179,7 @@ func (r *BrokerResource) DeleteUrl(owner, slug, url, brokerType string) error {
 // patch := bitbucket.GetPatch(repo, p.Id, u.BitbucketToken, u.BitbucketSecret)
 func (r *BrokerResource) GetPatch(owner, slug string, id int) (string, error) {
 	data := []byte{}
-	// uri, err := url.Parse("https://api.bitbucket.org/1.0" + path)
+	// uri, err := url.Parse(c.BaseURL + path)
 	// https://bitbucket.org/!api/2.0/repositories/tdburke/test_mymysql/pullrequests/1/patch
 
 	path := fmt.Sprintf("/repositories/tdburke/test_mymysql/pullrequests/1/patch")
@@ -219,11 +219,11 @@ type PostReceiveHook struct {
 }
 
 type Commit struct {
-	Message string `json:"message"`
-	Author  string `json:"author"`
-	Branch  string `json:"branch"`
-	Hash    string `json:"raw_node"`
-	Files []*File `json:"files"`
+	Message string  `json:"message"`
+	Author  string  `json:"author"`
+	Branch  string  `json:"branch"`
+	Hash    string  `json:"raw_node"`
+	Files   []*File `json:"files"`
 }
 
 type File struct {
