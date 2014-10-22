@@ -219,11 +219,12 @@ type PostReceiveHook struct {
 }
 
 type Commit struct {
-	Message string `json:"message"`
-	Author  string `json:"author"`
-	Branch  string `json:"branch"`
-	Hash    string `json:"raw_node"`
-	Files []*File `json:"files"`
+	Message   string  `json:"message"`
+	Author    string  `json:"author"`
+	RawAuthor string  `json:"raw_author"`
+	Branch    string  `json:"branch"`
+	Hash      string  `json:"raw_node"`
+	Files     []*File `json:"files"`
 }
 
 type File struct {
