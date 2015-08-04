@@ -88,7 +88,8 @@ func (r *RepoResource) ListBranches(owner, slug string) ([]*Branch, error) {
 	// The list is returned in a map ...
 	// we really want a slice
 	branches := []*Branch{}
-	for _, branch := range branchMap {
+	for name, branch := range branchMap {
+		branch.Branch = name
 		branches = append(branches, branch)
 	}
 
