@@ -24,6 +24,7 @@ func New(consumerKey, consumerSecret, accessToken, tokenSecret string) *Client {
 	c.Teams = &TeamResource{c}
 	c.RepoKeys = &RepoKeyResource{c}
 	c.Sources = &SourceResource{c}
+	c.Pullrequests = &PullrequestResource{c}
 	return c
 }
 
@@ -41,6 +42,7 @@ type Client struct {
 	Teams    *TeamResource
 	Sources  *SourceResource
 	RepoKeys *RepoKeyResource
+	Pullrequests *PullrequestResource
 }
 
 // Guest Client that can be used to access
