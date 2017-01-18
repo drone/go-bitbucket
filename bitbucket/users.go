@@ -4,6 +4,21 @@ import (
 	"fmt"
 )
 
+type Event struct {
+	Node         string      `json:"node"`
+	CreatedOn    string      `json:"created_on"`
+	Repository   *Repo       `json:"repository"`
+	User         *User       `json:"user"`
+	UtcCreatedOn string      `json:"utc_created_on"`
+	Event        string      `json:"event"`
+	Description  interface{} `json:"description"`
+}
+
+type EventCollection struct {
+	Count  int64   `json:"count"`
+	Events []Event `json:"events"`
+}
+
 type Account struct {
 	User  *User   `json:"user"`
 	Repos []*Repo `json:"repositories"`
@@ -51,7 +66,18 @@ func (r *UserResource) Find(username string) (*Account, error) {
 	return &user, nil
 }
 
-/* TODO 
+func (r *UserResource) Events(username string) (*EventCollection, error) {
+	eventCollection := EventCollection{}
+	path := fmt.Sprintf("/users/%s/events", username)
+
+	if err := r.client.do("GET", path, nil, nil, &eventCollection); err != nil {
+		return nil, err
+	}
+
+	return &eventCollection, nil
+}
+
+/* TODO
 // Updates the basic information associated with an account.
 // It operates on the currently authenticated user.
 func (r *UserResource) Update(user *User) (*User, error) {
